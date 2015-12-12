@@ -1,0 +1,76 @@
+<!-- RenderLayer RenderObject树 DOM树
+
+RenderLayer(负责 DOM 子树)，GraphicsLayer(负责 RenderLayer 的子树)。我们感兴趣的是后者，因为只有 GraphicsLayer 是作为纹理(texture)上传给 GPU 的。后面我将只用「层」来代表 GraphicsLayer。
+ -->
+
+
+<!-- [slide]
+## 尝试解释
+
+* 静态时，元素按照W3标准渲染出正确结果
+* 动画时，`z-index: 0;`元素创建自己的堆叠上下文，而非与页面上大部分的元素共用layer，这就导致不同layer之间z-index无法正常比较[网上有这种说法，权威性有待考证 todo]。显示设置`z-index`值了之后，浏览器就能正确的比较[这只是个人的基于现象的猜想，具体怎么计算比较layer内外的z-index的估计要看`webkit/blink`内核的源码吧 todo]
+
+
+<!-- 3D加速 会让后面所有相对定位、绝对定位的元素 同样开启3d加速，这时候加z-index就行了 -->
+
+
+<!-- [CSS3硬件加速也有坑！！！](http://mp.weixin.qq.com/s?__biz=MzA5NTM2MTEzNw==&mid=379618526&idx=1&sn=bd7bc6f95f3344c3154a0e6868e7c100&scene=0&key=2877d24f51fa5384c465c805714933506d8623f13869f96659ba194346d25db2721870a26bb0c15fa16ec4017415468c&ascene=0&uin=MjIzOTg1ODg0MQ%3D%3D&devicetype=iMac+MacBookPro11%2C2+OSX+OSX+10.10.5+build(14F27)&version=11020201&pass_ticket=oNItoSgLngeYyImzkmw0hlzdKNWNGmRaNZoez8yh%2Bay01SnNwIdcJQiLiq0m0LxY) -->
+
+<!-- 《WebKit技术内幕》 -->
+
+<!-- 第二章介绍了网页的结构，其中提到了Webkit硬件加速的方式，会把需要渲染的元素放到特定的『Composited Layer』中
+
+有动画3d变换的元素会被一个黄色的边框圈起来，表示放到了一个新的『复合层（composited layer）』中渲染
+
+蓝色的细线是浏览器渲染时候的『瓦片』，浏览器绘制页面的时候只会绘制可视区域一定范围内的瓦片，以节省性能开销，而黄色的边框框起来的，就代表了这个元素被放到特殊的复合层中渲染，跟主文档不在一个层中。
+
+轮播动画元素的存在居然会导致下面所有相对和绝对定位的元素都被放到复合层中。。。
+
+浏览器有可能给复合层之后的所有相对或绝对定位的元素都创建一个复合层来渲染，于是就有了上面那个项目截图的那种效果。
+
+ -->
+
+
+ ## 切题
+
+[RenderLayer节点建立规则](书)
+
+
+
+
+<!-- 层 -->
+
+
+<!-- todo 分别怎么渲染 纹理 GPU 如何选择 -->
+
+<!-- 层和GPU的关系 -->
+
+<!-- 层的演示demo -->
+
+<!-- 层的设计初衷 design document -->
+
+<!-- DOM RenderObject RenderLayer(1:n) GraphicLayer -->
+
+<!-- 布局计算 -->
+
+<!-- RenderLayer的创建规则 -->
+
+[slide]
+## 层
+[layer demo](http://www.html5rocks.com/zh/tutorials/speed/layers/onelayer.html)
+
+### why?
+* 方便开发者开发网页
+* 简化 Webkit 渲染逻辑
+
+
+[slide]
+## 层创建标准
+
+![](http://images2015.cnblogs.com/blog/383794/201511/383794-20151102184428602-1994939021.png)
+
+
+
+
+<!-- todo -->
+<!-- 截图、chrome调试工具、指导性结论、回答自己的问题 -->
