@@ -1,0 +1,61 @@
+<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+<title>层叠上下文顺序</title>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        color: #fff;
+        padding: 7px;
+        padding-top: 17px;
+        border: 2px solid;
+        box-sizing: border-box;
+        margin-bottom: -20px;
+    }
+
+    body {
+        background: #b475c1;
+    }
+    #z-index-negative {
+        background-color: #8275c1;
+        z-index: -1;
+        position: relative;
+    }
+    #block {
+        background-color: #4e80c4;
+        display: block;
+        margin-left: 12px;
+    }
+    #float {
+        background-color: #4ec4ac;
+        float: left;
+        margin-left: 20px;
+        clear: left;
+    }
+
+    #inline {
+        background-color: #a4c443;
+        display: inline-block;
+        margin-left: -28px;
+    }
+    #z-index-0 {
+        background-color: #ea9632;
+        z-index: 0;
+        position: relative;
+        margin-left: 36px;
+    }
+    #z-index-1 {
+        background-color: #ea3f32;
+        z-index: 1;
+        position: relative;
+        margin-left: 44px;
+    }
+</style>
+
+<body>
+    <div id="z-index-1">z-index: 1 <strong>positioned</strong></div>
+    <div id="z-index-0">z-index: 0 <strong>positioned</strong></div>
+    <div id="inline">inline</div>
+    <div id="float">float</div>
+    <div id="block">block</div>
+    <div id="z-index-negative">z-index-negative</div>
+<body>

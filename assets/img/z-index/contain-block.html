@@ -1,0 +1,28 @@
+<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+<title>transform 改变绝对定位子元素包含块</title>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+    }
+    #fixed {
+        position: fixed;
+        /*position: absolute;*/
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: blue;
+    }
+    #transform {
+        background: red;
+        padding: 20px;
+        /*transform: translateZ(0);*/
+    }
+</style>
+
+<body>
+    <div id="transform">
+        <div id="fixed"></div>
+    </div>
+</body>

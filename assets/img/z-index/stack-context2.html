@@ -1,0 +1,40 @@
+<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+<title>层叠上下文顺序</title>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        color: #fff;
+        padding: 7px;
+        padding-top: 17px;
+        border: 2px solid;
+        box-sizing: border-box;
+        margin-bottom: -20px;
+    }
+
+    body {
+        background: #b475c1;
+    }
+    #z-index-0 {
+        background-color: #ea9632;
+        z-index: 0;
+        position: relative;
+        margin-left: 36px;
+    }
+    #newProps {
+        background-color: #ea3f32;
+         margin-left: 44px;
+        /* position: fixed; */
+        /* opacity: .5; */
+        /* transform: scale(1); */
+        /* mix-blend-mode: difference; */
+        /* isolation: isolate; */
+        /* -webkit-filter: blur(0px); */
+        /* will-change: transform; */
+    }
+</style>
+
+<body>
+    <div id="z-index-0">z-index: 0 <strong>positioned</strong></div>
+    <div id="newProps">newProps</div>
+<body>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webkit渲染过程</title>
+    <style>
+    img {
+        transform: scale(1, 1);
+    }
+    </style>
+</head>
+<body>
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="">
+    <script>
+        window.onload = function() {
+            var img = document.querySelector('img');
+
+            img.onclick = function(e) {
+                this.width += 10;
+            }
+        };
+    </script>
+</body>
+</html>
